@@ -22,7 +22,7 @@
     "dependencies": {
         "@heroicons/react": "^2.1.5",
         "classnames": "^2.5.1",
-        "firebase": "^10.13.2",
+        "firebase": "^10.14.0",
         "react-toastify": "^10.0.5",
         "react-toggle-dark-mode": "^1.1.1"
     }
