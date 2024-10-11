@@ -15,14 +15,14 @@ class RtmctokenController extends Controller
     public function generate(Request $request)
     {
 
-        $appID = "858e98ae022643ee98cab45bab50fb84";
-        $appCertificate = "24eff318410546b3b51e415668b53d04";
+        // $appID = "858e98ae022643ee98cab45bab50fb84";
+        // $appCertificate = "24eff318410546b3b51e415668b53d04";
 
-        // $agora = Cache::rememberForever('agora', function () {
-        //     return Agora::first();
-        // });
-        // $appID = $agora->app_id;
-        // $appCertificate = $agora->app_certificate;
+        $agora = Cache::rememberForever('agora', function () {
+            return Agora::first();
+        });
+        $appID = $agora->app_id;
+        $appCertificate = $agora->app_certificate;
 
         $user = $request->user;
         $role = RtmTokenBuilder::RoleRtmUser;

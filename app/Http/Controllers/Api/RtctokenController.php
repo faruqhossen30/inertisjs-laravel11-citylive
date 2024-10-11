@@ -20,14 +20,16 @@ class RtctokenController extends Controller
         // include("../../Lib/RtcTokenBuilder.php");
 
 
-        $appID = "858e98ae022643ee98cab45bab50fb84";
-        $appCertificate = "24eff318410546b3b51e415668b53d04";
+        // $appID = "858e98ae022643ee98cab45bab50fb84";
+        // $appCertificate = "24eff318410546b3b51e415668b53d04";
 
         // $agora = Cache::rememberForever('agora', function () {
         //     return Agora::first();
         // });
-        // $appID = $agora->app_id;
-        // $appCertificate = $agora->app_certificate;
+
+        $agora = Agora::first();
+        $appID = $agora->app_id;
+        $appCertificate = $agora->app_certificate;
 
         $channelName = $request->channel;
         $uid = $request->uid;
@@ -39,7 +41,7 @@ class RtctokenController extends Controller
 
         $token = RtcTokenBuilder::buildTokenWithUid($appID, $appCertificate, $channelName, $uid, $role, $privilegeExpiredTs);
         // echo 'Token with int uid: ' . $token . PHP_EOL;
-        return $token;
+        echo $token;
 
         // $token = RtcTokenBuilder::buildTokenWithUserAccount($appID, $appCertificate, $channelName, $uidStr, $role, $privilegeExpiredTs);
         // echo 'Token with user account: ' . $token . PHP_EOL;

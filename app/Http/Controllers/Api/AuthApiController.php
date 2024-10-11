@@ -12,15 +12,16 @@ class AuthApiController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'name' => 'required',
+            'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
         ]);
 
         $user = User::create([
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'password'=> Hash::make('123456'),
-            'photo_url'=> $request->photo_url,
+            'name' => $request->name,
+            'email' => $request->email,
+            'uid' => $request->uid,
+            'password' => Hash::make('123456'),
+            'photo_url' => $request->photo_url,
         ]);
 
         return response()->json($user);

@@ -13,4 +13,7 @@ class SettingController extends Controller
     public function index(): Response{
         return Inertia::render('Admin/SettingPage');
     }
+    public function agora(): Response{
+        return Inertia::render('Admin/Settings/Agora');
+    }
 }
